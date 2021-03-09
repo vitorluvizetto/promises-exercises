@@ -6,10 +6,21 @@
  * @param {*} transformer 
  * @returns {Promise}
  */
-function mapPromise(promise, transformer){
+function mapPromise(promise, transformer) {
   return new Promise((resolve, reject) => {
     /* IMPLEMENT ME!! */
-  });
+    // Resumidamente
+    /*
+      promise
+        .then(result => resolve(transformer(result)))
+        .catch(err => reject(err)) 
+    */
+    promise.then(result => {
+      return resolve(transformer(result));
+    }).catch(err => {
+      return reject(err);
+    })
+  })
 }
 
 /**
@@ -19,7 +30,7 @@ function mapPromise(promise, transformer){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromise(numberPromise){
+function squarePromise(numberPromise) {
   return numberPromise
     .then(/* IMPLEMENT ME! */);
 }
@@ -30,7 +41,7 @@ function squarePromise(numberPromise){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromiseOrZero(promise){
+function squarePromiseOrZero(promise) {
   return squarePromise(promise)
     .catch(/* IMPLEMENT ME! */);
 }
@@ -41,7 +52,7 @@ function squarePromiseOrZero(promise){
  * @param {Promise} promise 
  * @returns {Promise}
  */
-function switcheroo(promise){
+function switcheroo(promise) {
   return promise.then(/* IMPLEMENT ME */);
 }
 
