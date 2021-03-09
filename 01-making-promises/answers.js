@@ -5,8 +5,12 @@
  * 
  * @returns {Promise<3>}
  */
-function makePromiseResolveWith3(){
-  /* IMPLEMENT ME! */
+function makePromiseResolveWith3() {
+  return new Promise((resolve, reject) => {
+    return resolve(3);
+  })
+
+  
 }
 
 /**
@@ -15,8 +19,10 @@ function makePromiseResolveWith3(){
  * 
  * @returns {Promise<,"Boo!">}
  */
-function makePromiseRejectWithBoo(){
-  /* IMPLEMENT ME! */
+function makePromiseRejectWithBoo() {
+  return new Promise((resolve, reject) => {
+    return reject("Boo!");
+  })
 }
 
 /**
@@ -27,10 +33,15 @@ function makePromiseRejectWithBoo(){
  * @returns {Promise<undefined, undefined>}
  */
 
-function makePromiseWithConstructor(itShouldResolve){
+function makePromiseWithConstructor(itShouldResolve) {
   return new Promise((resolve, reject) => {
     /* If itShouldResolve is true, call resolve */
     /* If itShouldResolve is false, call reject */
+    if (itShouldResolve) {
+      return resolve();
+    } else{
+      return reject();
+    }
   });
 }
 
@@ -42,8 +53,13 @@ function makePromiseWithConstructor(itShouldResolve){
  * @param {number} delayInMs 
  * @return {Promise<any>} - A promise that will resolve with the value after delayInMs milliseconds
  */
-function makeDelayPromise(value, delayInMs){
+function makeDelayPromise(value, delayInMs) {
   /* Return a promise that resolves with the value after delayInMs */
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      return resolve(value);
+    }, delayInMs);
+  })
 }
 
 module.exports = {
